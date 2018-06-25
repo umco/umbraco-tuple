@@ -1,0 +1,7 @@
+<div class="umco-tuple alias--{{ model.alias }}" ng-controller="Our.Umbraco.Tuple.EditorController as vm">
+
+    <div class="tuple-item {{ vm.className }}" ng-repeat="control in vm.controls">
+        <tuple-property-editor model="control" />
+    </div>
+
+</div>

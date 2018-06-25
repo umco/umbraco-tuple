@@ -1,0 +1,11 @@
+
+.umco-tuple {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tuple-item input,
+.tuple-item textarea,
+.tuple-item select {
+    width: 90% !important;
+}
