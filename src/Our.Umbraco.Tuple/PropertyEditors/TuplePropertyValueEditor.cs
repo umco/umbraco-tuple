@@ -40,7 +40,7 @@ namespace Our.Umbraco.Tuple.PropertyEditors
             if (propertyValue == null || string.IsNullOrWhiteSpace(propertyValue))
                 return base.ConvertDbToEditor(property, propertyType, dataTypeService);
 
-            var items = JsonConvert.DeserializeObject<List<TupleValueItem>>(propertyValue);
+            var items = JsonConvert.DeserializeObject<TupleValueItems>(propertyValue);
             if (items == null || items.Count == 0)
                 return base.ConvertDbToEditor(property, propertyType, dataTypeService);
 
@@ -67,7 +67,7 @@ namespace Our.Umbraco.Tuple.PropertyEditors
             if (propertyValue == null || string.IsNullOrWhiteSpace(propertyValue))
                 return base.ConvertDbToString(property, propertyType, dataTypeService);
 
-            var items = JsonConvert.DeserializeObject<List<TupleValueItem>>(propertyValue);
+            var items = JsonConvert.DeserializeObject<TupleValueItems>(propertyValue);
             if (items == null || items.Count == 0)
                 return base.ConvertDbToString(property, propertyType, dataTypeService);
 
@@ -90,7 +90,7 @@ namespace Our.Umbraco.Tuple.PropertyEditors
             if (propertyValue == null || string.IsNullOrWhiteSpace(propertyValue))
                 return base.ConvertDbToXml(property, propertyType, dataTypeService);
 
-            var items = JsonConvert.DeserializeObject<List<TupleValueItem>>(propertyValue);
+            var items = JsonConvert.DeserializeObject<TupleValueItems>(propertyValue);
             if (items == null || items.Count == 0)
                 return base.ConvertDbToXml(property, propertyType, dataTypeService);
 
@@ -114,7 +114,7 @@ namespace Our.Umbraco.Tuple.PropertyEditors
             if (value == null || string.IsNullOrWhiteSpace(value))
                 return base.ConvertEditorToDb(editorValue, currentValue);
 
-            var model = JsonConvert.DeserializeObject<List<TupleValueItem>>(value);
+            var model = JsonConvert.DeserializeObject<TupleValueItems>(value);
             if (model == null || model.Count == 0)
                 return base.ConvertEditorToDb(editorValue, currentValue);
 
