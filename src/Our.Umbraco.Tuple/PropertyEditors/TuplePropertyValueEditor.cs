@@ -48,9 +48,14 @@ namespace Our.Umbraco.Tuple.PropertyEditors
             {
                 // Get the associated datatype definition
                 var dtd = dataTypeService.GetDataTypeDefinitionById(item.DataTypeGuid); // TODO: Caching? [LK:2018-06-25]
+                if (dtd == null)
+                    continue;
 
                 // Lookup the property editor and convert the db to editor value
                 var propEditor = PropertyEditorResolver.Current.GetByAlias(dtd.PropertyEditorAlias); // TODO: Caching? [LK:2018-06-25]
+                if (propEditor == null)
+                    continue;
+
                 var propType = new PropertyType(dtd);
                 var prop = new Property(propType, item.Value);
 
@@ -74,7 +79,13 @@ namespace Our.Umbraco.Tuple.PropertyEditors
             foreach (var item in items)
             {
                 var dtd = dataTypeService.GetDataTypeDefinitionById(item.DataTypeGuid); // TODO: Caching? [LK:2018-06-25]
+                if (dtd == null)
+                    continue;
+
                 var propEditor = PropertyEditorResolver.Current.GetByAlias(dtd.PropertyEditorAlias); // TODO: Caching? [LK:2018-06-25]
+                if (propEditor == null)
+                    continue;
+
                 var propType = new PropertyType(dtd);
                 var prop = new Property(propType, item.Value);
 
@@ -97,7 +108,13 @@ namespace Our.Umbraco.Tuple.PropertyEditors
             foreach (var item in items)
             {
                 var dtd = dataTypeService.GetDataTypeDefinitionById(item.DataTypeGuid); // TODO: Caching? [LK:2018-06-25]
+                if (dtd == null)
+                    continue;
+
                 var propEditor = PropertyEditorResolver.Current.GetByAlias(dtd.PropertyEditorAlias); // TODO: Caching? [LK:2018-06-25]
+                if (propEditor == null)
+                    continue;
+
                 var propType = new PropertyType(dtd);
                 var prop = new Property(propType, item.Value);
 
@@ -125,8 +142,17 @@ namespace Our.Umbraco.Tuple.PropertyEditors
                 var obj = model[i];
 
                 var dtd = dataTypeService.GetDataTypeDefinitionById(obj.DataTypeGuid); // TODO: Caching? [LK:2018-06-25]
+                if (dtd == null)
+                    continue;
+
                 var preValues = dataTypeService.GetPreValuesCollectionByDataTypeId(dtd.Id); // TODO: Caching? [LK:2018-06-25]
+                if (preValues == null)
+                    continue;
+
                 var propEditor = PropertyEditorResolver.Current.GetByAlias(dtd.PropertyEditorAlias);
+                if (propEditor == null)
+                    continue;
+
                 var propData = new ContentPropertyData(obj.Value, preValues, new Dictionary<string, object>());
 
                 model[i].Value = propEditor.ValueEditor.ConvertEditorToDb(propData, obj.Value);
