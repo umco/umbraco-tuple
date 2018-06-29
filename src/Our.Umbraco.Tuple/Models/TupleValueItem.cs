@@ -5,7 +5,6 @@ using Umbraco.Core;
 
 namespace Our.Umbraco.Tuple.Models
 {
-    [JsonObject]
     public class TupleValueItems : List<TupleValueItem>
     { }
 
