@@ -66,7 +66,7 @@ Have a question?
 
 ## License
 
-Copyright &copy; 2017 UMCO, Our Umbraco and [other contributors](https://github.com/umco/umbraco-tuple/graphs/contributors)
+Copyright &copy; 2018 UMCO, Our Umbraco and [other contributors](https://github.com/umco/umbraco-tuple/graphs/contributors)
 
 Licensed under the [MIT License](LICENSE.md)
 
