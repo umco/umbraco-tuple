@@ -56,7 +56,7 @@ namespace Our.Umbraco.Tuple.PropertyEditors
                 if (propEditor == null)
                     continue;
 
-                var propType = new PropertyType(dtd);
+                var propType = new PropertyType(dtd, propertyType.Alias);
                 var prop = new Property(propType, item.Value);
 
                 item.Value = propEditor.ValueEditor.ConvertDbToEditor(prop, propType, dataTypeService);
@@ -86,7 +86,7 @@ namespace Our.Umbraco.Tuple.PropertyEditors
                 if (propEditor == null)
                     continue;
 
-                var propType = new PropertyType(dtd);
+                var propType = new PropertyType(dtd, propertyType.Alias);
                 var prop = new Property(propType, item.Value);
 
                 item.Value = propEditor.ValueEditor.ConvertDbToString(prop, propType, dataTypeService);
@@ -115,7 +115,7 @@ namespace Our.Umbraco.Tuple.PropertyEditors
                 if (propEditor == null)
                     continue;
 
-                var propType = new PropertyType(dtd);
+                var propType = new PropertyType(dtd, propertyType.Alias);
                 var prop = new Property(propType, item.Value);
 
                 item.DataTypeUdi = dtd.GetUdi();

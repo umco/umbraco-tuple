@@ -133,7 +133,7 @@ namespace Our.Umbraco.Tuple.ValueConverters
                         foreach (var item in items)
                         {
                             var dtd = dataTypeService.GetDataTypeDefinitionById(item.DataTypeGuid);
-                            list.Add(new PublishedPropertyType(propertyType.ContentType, new PropertyType(dtd)));
+                            list.Add(new PublishedPropertyType(propertyType.ContentType, new PropertyType(dtd, propertyType.PropertyTypeAlias)));
                         }
                     }
                     return list;
