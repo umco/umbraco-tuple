@@ -44,7 +44,27 @@ namespace Our.Umbraco.Tuple.ValueConverters
             if (innerPropertyTypes == null || innerPropertyTypes.Count == 0)
                 return base.ConvertDataToSource(propertyType, source, preview);
 
-            var model = JsonConvert.DeserializeObject<TupleValueItems>(data);
+            var model = new TupleValueItems();
+
+            // Detect whether the value is in JSON or XML format
+            //
+            // NOTE: We can't be sure which format the data is in.
+            // With "nested property-editors", (e.g. Nested Content, Stacked Content),
+            // they don't convert the call `ConvertDbToXml`.
+            if (data.DetectIsJson())
+            {
+                model.AddRange(JsonConvert.DeserializeObject<TupleValueItems>(data));
+            }
+            else
+            {
+                // otherwise we assume it's XML
+                var elements = XElement.Parse(data);
+                if (elements != null && elements.HasElements)
+                {
+                    model.AddRange(elements.XPathSelectElements("value").Select(x => new TupleValueItem { Value = x.Value }));
+                }
+            }
+
             if (model == null && model.Count == 0)
                 return base.ConvertDataToSource(propertyType, source, preview);
 
