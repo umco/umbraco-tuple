@@ -40,17 +40,6 @@ Anyone and everyone is welcome to contribute. Please take a moment to review the
 * [Feature requests](CONTRIBUTING.md#features)
 * [Pull requests](CONTRIBUTING.md#pull-requests)
 
-### TODO
-
-What's left to do?
-
-- [ ] Deploy ValueConnector
-  - [ ] Pre Value Editor
-    - [ ] Add DataType dependency
-  - [ ] Value Editor
-    - [ ] Processing the item's DataTypes
-
-
 ---
 
 ## Contact
