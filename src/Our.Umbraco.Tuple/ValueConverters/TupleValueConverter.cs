@@ -73,10 +73,8 @@ namespace Our.Umbraco.Tuple.ValueConverters
                 var item = model[i];
                 var innerPropertyType = innerPropertyTypes[i];
                 var itemSource = innerPropertyType.ConvertDataToSource(item.Value, preview);
-
-                var attempt = itemSource.TryConvertTo(innerPropertyType.ClrType);
-                if (attempt.Success)
-                    item.Value = attempt.Result;
+                
+                item.Value = itemSource;
             }
 
             return model;
